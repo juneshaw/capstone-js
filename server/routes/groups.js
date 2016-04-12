@@ -19,6 +19,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/preference/:id', function(req, res, next) {
+  console.log('**************** group id in get is: ', req.params.id);
   db.groupByPreference(req.params.id).then(function(data) {
     res.send({payload:data});
   });
@@ -27,8 +28,6 @@ router.get('/preference/:id', function(req, res, next) {
 router.get('/actgen', function(req, res, next) {
   console.log('in activitygen');
   var activities = engine.createActivities();
-  console.log('activities: @@@@@@@@@@@@@@@@@@@@@@@@@@@@', activities);
-    // console.log('******* engine activity: ');
     res.send({payload:activities});
 
 })
