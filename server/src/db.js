@@ -192,7 +192,7 @@ activity_member: function(id) {
 },
 
 updateActivity_Member: function(activity_member) {
-  return(this.Activity_Members().where('id', id).first().update(activity_member));
+  return(this.Activity_Members().where('id', activity_member.id).first().update(activity_member));
 },
 
 deleteActivity_Member: function(id) {
