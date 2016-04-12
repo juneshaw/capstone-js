@@ -111,14 +111,19 @@ router.get('/:id/members/:memberId/rsvp/:reply', function(req, res, next) {
       console.log('going to insertActivityMember with: ', memberData);
       db.insertActivity_Member({activity_id: activity_id,
                         member_id: member_id,
-                        rsvp: req.params.reply});
+                        rsvp: req.params.reply}).then(function(data) {
+                          console.log('data from insert', data);
+                        }
+                        );
     } else {
       var memberData = {id: data[0].id,
         activity_id: activity_id,
         member_id: member_id,
         rsvp: req.params.reply};
       console.log('going to updateActivityMember with ', memberData);
-      db.updateActivity_Member(memberData);
+      db.updateActivity_Member(memberData).then(function(data) {
+        console.log('data from update', data);
+      });
     }
   })
 });
