@@ -105,20 +105,18 @@ router.get('/:id/members/:memberId/rsvp/:reply', function(req, res, next) {
   // var jsonObj = JSON.parse(req.body.json);
   db.activityMemberByActMem(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
     console.log('@@@@@@ rsvp data: ', data);
-    var memberData = {activity_id: req.params.id,
-                      member_id: req.params.memberId,
-                      rsvp: req.params.reply};
     if (data.length===0) {
       console.log('going to insertActivityMember with: ', memberData);
       db.insertActivity_Member({activity_id: req.params.id,
                         member_id: req.params.memberId,
                         rsvp: req.params.reply});
     } else {
+      var memberData = {id: data[0].id,
+        activity_id: req.params.id,
+        member_id: req.params.memberId,
+        rsvp: req.params.reply};
       console.log('going to updateActivityMember with ', memberData);
-      db.updateActivity_Member({id: data[0].id,
-                        activity_id: req.params.id,
-                        member_id: req.params.memberId,
-                        rsvp: req.params.reply});
+      db.updateActivity_Member(memberData);
     }
   })
 });
