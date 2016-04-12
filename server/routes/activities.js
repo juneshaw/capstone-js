@@ -109,8 +109,10 @@ router.post('/:id/members/:memberId/rsvp/:reply', function(req, res, next) {
                       member_id: req.params.memberId,
                       rsvp: req.params.reply};
     if (data.length===0) {
+      console.log('going to insertActivityMember');
       db.insertActivity_Member(memberData);
     } else {
+      console.log('going to updateActivityMember');
       db.updateActivity_Member(memberData);
     }
   })
