@@ -115,7 +115,7 @@ router.get('/:id/members/:memberId/rsvp/:reply', function(req, res, next) {
                         rsvp: req.params.reply});
     } else {
       console.log('going to updateActivityMember with ', memberData);
-      db.updateActivity_Member({id: data.id,
+      db.updateActivity_Member({id: data[0].id,
                         activity_id: req.params.id,
                         member_id: req.params.memberId,
                         rsvp: req.params.reply});
