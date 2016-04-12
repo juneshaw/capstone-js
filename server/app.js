@@ -15,7 +15,7 @@ var businesses = require('./routes/businesses')
 var activity_members = require('./routes/activity_members')
 var preferences = require('./routes/preferences')
 var categories = require('./routes/categories')
-var categories = require('./routes/invite')
+var invite = require('./routes/invite')
 // var invites = require('./routes/invites')
 
 var app = express();
