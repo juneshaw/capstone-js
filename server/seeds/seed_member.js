@@ -6,8 +6,8 @@ exports.seed = function(knex, Promise) {
 
     // Inserts seed entries
     knex('member').insert({id: 1,
-      first_name: 'June',
-      last_name: 'Shaw',
+      first_name: 'Aanal',
+      last_name: 'Patel',
       contact_info_id: 1,
       image_url: "https://s3-us-west-1.amazonaws.com/connectbot/head.png"}),
     knex('member').insert({id: 2,
