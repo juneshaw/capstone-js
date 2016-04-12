@@ -110,10 +110,15 @@ router.get('/:id/members/:memberId/rsvp/:reply', function(req, res, next) {
                       rsvp: req.params.reply};
     if (data.length===0) {
       console.log('going to insertActivityMember with: ', memberData);
-      db.insertActivity_Member(memberData);
+      db.insertActivity_Member({activity_id: req.params.id,
+                        member_id: req.params.memberId,
+                        rsvp: req.params.reply});
     } else {
       console.log('going to updateActivityMember with ', memberData);
-      db.updateActivity_Member(memberData);
+      db.updateActivity_Member({id: data.id,
+                        activity_id: req.params.id,
+                        member_id: req.params.memberId,
+                        rsvp: req.params.reply});
     }
   })
 });

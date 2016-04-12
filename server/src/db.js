@@ -188,7 +188,7 @@ insertActivity_Member: function (activity_member) {
 },
 
 activity_member: function(id) {
-  return(this.Activity_Members().where('id', id))
+  return(this.Activity_Members().where('id', id)).returning('id');
 },
 
 updateActivity_Member: function(id, activity_member) {
