@@ -3,7 +3,8 @@
 //
 // var app = angular.module('my-app', [angularDragula(angular)]);
 
-var app = angular.module('clientApp', ['ngRoute', 'uiGmapgoogle-maps', 'ui.bootstrap',  'connectbotControllers', angularDragula(angular) ]);
+var app = angular.module('clientApp', ['ngRoute', 'ui.bootstrap',  'connectbotControllers', angularDragula(angular) ]);
+// var app = angular.module('clientApp', ['ngRoute', 'uiGmapgoogle-maps', 'ui.bootstrap',  'connectbotControllers', angularDragula(angular) ]);
 
 
 // var app = angular.module('clientApp', ['ngRoute', 'uiGmapgoogle-maps', 'ui.bootstrap',  angularDragula(angular), 'connectbotControllers']);

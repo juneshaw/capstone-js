@@ -291,11 +291,20 @@ preferenceTimes: function(preferenceId) {
   return(this.Preferences().where('id', preferenceId).first());
 },
 
+activityMemberByActMem: function(activityId, memberId) {
+  console.log('in actmembbyids: ', activityId, memberId);
+  return(this.Activity_Members().where({'activity_id':activityId, 'memberId': memberId}).first())
+  // return (this.Preference_Categories().where('preference_id', preferenceId).del().count());
+},
+
 deletePreference_CategoryByPreference: function(preferenceId) {
   console.log('in deletePreference_CategoryByPreference with prefid: ', preferenceId);
   return (this.Preference_Categories().where('preference_id', preferenceId).del().count());
 }
-
+//
+// activityMemberByActMem: function(activityId, memberId) {
+//   return(this.Activity_Members().where({'activity_id':activityId, 'memberId': memberId})).first()
+// }
 
 
 //   return(this.Members().join('activity_member', 'member.id', 'activity_member.member_id').where('activity_member.activity_id', activityId))

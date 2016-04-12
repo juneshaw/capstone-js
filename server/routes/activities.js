@@ -107,6 +107,23 @@ router.get('/:id/members', function(req, res, next) {
   });
 });
 
+router.post('/:id/member/:memberId/rsvp/:reply', function(req, res, next) {
+  console.log('made it to the rsvp  with param id of: ', req.params.id, req.params.memberId);
+  var jsonObj = JSON.parse(req.body.json);
+  db.activityRsvp(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
+    console.log('rsvp data: ', data);
+  })
+});
+
+// router.post('/:id/times/edit', function(req, res, next) {
+//   var jsonObj = JSON.parse(req.body.json);
+//   db.updatePreference(req.params.id,
+//     {time: jsonObj.time,
+//       day: jsonObj.day,
+//       periodicity: jsonObj.periodicity}).then(function(data) {
+//   })
+// })
+
 
 router.get('/:id', function(req, res, next) {
   console.log('made it to the activities show with param id of: ', req.params.id);
