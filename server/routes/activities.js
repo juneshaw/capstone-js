@@ -103,7 +103,7 @@ router.get('/new/location/:location/sort/:sort', function(req, res, next) {
 router.post('/:id/members/:memberId/rsvp/:reply', function(req, res, next) {
   console.log('made it to the rsvp  with param id of: ', req.params.id, req.params.memberId);
   var jsonObj = JSON.parse(req.body.json);
-  db.activityRsvp(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
+  db.activityMemberByActMem(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
     console.log('rsvp data: ', data);
   })
 });
