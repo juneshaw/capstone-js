@@ -293,7 +293,7 @@ preferenceTimes: function(preferenceId) {
 
 activityMemberByActMem: function(activityId, memberId) {
   console.log('in actmembbyids: ', activityId, memberId);
-  return(this.Activity_Members().where({'activity_id':activityId, 'member_id': memberId}).first())
+  return(this.Activity_Members().where({'activity_id':activityId, 'member_id': memberId})
   // return (this.Preference_Categories().where('preference_id', preferenceId).del().count());
 },
 
