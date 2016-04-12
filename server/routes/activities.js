@@ -105,15 +105,17 @@ router.get('/:id/members/:memberId/rsvp/:reply', function(req, res, next) {
   // var jsonObj = JSON.parse(req.body.json);
   db.activityMemberByActMem(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
     console.log('@@@@@@ rsvp data: ', data);
+    var activity_id = parseInt(req.params.id);
+    var member_id = parseInt(req.params.memberId);
     if (data.length===0) {
       console.log('going to insertActivityMember with: ', memberData);
-      db.insertActivity_Member({activity_id: req.params.id,
-                        member_id: req.params.memberId,
+      db.insertActivity_Member({activity_id: activity_id,
+                        member_id: member_id,
                         rsvp: req.params.reply});
     } else {
       var memberData = {id: data[0].id,
-        activity_id: req.params.id,
-        member_id: req.params.memberId,
+        activity_id: activity_id,
+        member_id: member_id,
         rsvp: req.params.reply};
       console.log('going to updateActivityMember with ', memberData);
       db.updateActivity_Member(memberData);
