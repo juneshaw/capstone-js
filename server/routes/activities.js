@@ -104,7 +104,7 @@ router.get('/:id/members/:memberId/rsvp/:reply', function(req, res, next) {
   console.log('made it to the rsvp  with param id of: ', req.params.id, req.params.memberId);
   // var jsonObj = JSON.parse(req.body.json);
   db.activityMemberByActMem(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
-    console.log('rsvp data: ', data);
+    console.log('@@@@@@ rsvp data: ', data);
     var memberData = {activity_id: req.params.id,
                       member_id: req.params.memberId,
                       rsvp: req.params.reply};
