@@ -99,15 +99,8 @@ router.get('/new/location/:location/sort/:sort', function(req, res, next) {
 });
 
 
-router.get('/:id/members', function(req, res, next) {
-  console.log('made it to the activities show with param id of: ', req.params.id);
-  db.activityMembers(req.params.id).then(function(data) {
-    console.log(' ACTIVITY member data: ', data);
-      res.send({payload:data});
-  });
-});
 
-router.post('/:id/member/:memberId/rsvp/:reply', function(req, res, next) {
+router.post('/:id/members/:memberId/rsvp/:reply', function(req, res, next) {
   console.log('made it to the rsvp  with param id of: ', req.params.id, req.params.memberId);
   var jsonObj = JSON.parse(req.body.json);
   db.activityRsvp(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
@@ -115,6 +108,13 @@ router.post('/:id/member/:memberId/rsvp/:reply', function(req, res, next) {
   })
 });
 
+router.get('/:id/members', function(req, res, next) {
+  console.log('made it to the activities show with param id of: ', req.params.id);
+  db.activityMembers(req.params.id).then(function(data) {
+    console.log(' ACTIVITY member data: ', data);
+    res.send({payload:data});
+  });
+});
 // router.post('/:id/times/edit', function(req, res, next) {
 //   var jsonObj = JSON.parse(req.body.json);
 //   db.updatePreference(req.params.id,
