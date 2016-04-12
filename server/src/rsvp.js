@@ -24,6 +24,8 @@ sendMessage: function(body) {
 
   client.sms.messages.create({
       to:'+13037264083',
+      // to:'+17202327517',
+      // 720-232-7517
       // to:'16142708123',
       from:process.env.TWILIO_NUMBER,
       body:body
