@@ -39,8 +39,8 @@ router.get('/send', function(req, res, next) {
   // Pass in parameters to the REST API using an object literal notation. The
   // REST client will handle authentication and response serialzation for you.
   client.sms.messages.create({
-      to:'+13037264083',
-      // to:'+17202327517',
+      // to:'+13037264083',
+      to:'+17202327517',
       // to:'16142708123',
       from:process.env.TWILIO_NUMBER,
       body:'Would you like to go to my lame event?'
