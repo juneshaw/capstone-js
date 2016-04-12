@@ -17,12 +17,6 @@ router.get('/', function(req, res, next) {
   // res.send({'test':"BACK from the server"});
 });
 
-router.get('/:id', function(req, res, next) {
-  db.business(req.params.id).first().then(function(data) {
-    console.log('business data: ', data);
-    res.send({payload:data});
-  });
-});
 
 
 
@@ -46,8 +40,9 @@ router.get('/send', function(req, res, next) {
   // REST client will handle authentication and response serialzation for you.
   client.sms.messages.create({
       to:'+13037264083',
+      // to:'16142708123',
       from:process.env.TWILIO_NUMBER,
-      body:'ahoy hoy! Testing Twilio and node.js'
+      body:'Would you like to go to my lame event?'
   }, function(error, message) {
       // The HTTP request to Twilio will run asynchronously. This callback
       // function will be called when a response is received from Twilio
@@ -69,6 +64,12 @@ router.get('/send', function(req, res, next) {
   });
 });
 
+router.get('/:id', function(req, res, next) {
+  db.business(req.params.id).first().then(function(data) {
+    console.log('business data: ', data);
+    res.send({payload:data});
+  });
+});
 // Reply back to app SMS number will be received here
 // This could be a Y, N, M confirmation to register.
 // The Y/N will be stored, and the M will be questioned again closer to the date.

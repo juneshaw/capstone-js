@@ -5,6 +5,7 @@ var request = require('request');
 var qs = require('querystring');
 var _ = require('lodash');
 var db = require('./db.js');
+var rsvp = require('./rsvp.js');
 
 module.exports = {
 
@@ -41,8 +42,12 @@ module.exports = {
       image_url: activity.image_url,
       category_name: activity.categories[0][0]
     }).then(function(data) {
-      console.log('data', data);   // need the id back
+      console.log('new activity data: ', data[0]);   // need the id back
         // db.initializeActivityRsvp(group, activityId)
+        console.log('ACTIVITY: ', activity);
+        console.log('GROUP: ', group);
+        console.log('TIME: ', time.time);
+        rsvp.invite(data[0], group, activity, time.time);
     })
 
     }
