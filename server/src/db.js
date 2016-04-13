@@ -302,8 +302,9 @@ deletePreference_CategoryByPreference: function(preferenceId) {
   return (this.Preference_Categories().where('preference_id', preferenceId).del().count());
 },
 
-memberByPhone: function(phone) {
-  console.log('in memberbyPhone', phone);
+memberByPhone: function() {
+  console.log('in memberbyPhone');
+  // console.log('in memberbyPhone', phone);
   return (this.Members().join('contact_info', 'member.contact_info_id', 'contact_info.id').where('contact_info.phone', phone).first());
 },
 
