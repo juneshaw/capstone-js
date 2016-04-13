@@ -61,32 +61,31 @@ router.get('/send', function(req, res, next) {
 // (get was suggested, but post is working.)
 // WORKING ON HEROKU
 router.post('/receive', function(req, res, next) {
-  console.log('Received a message from Twilio: ', req.body);
-  db.memberByPhone(req.body.phone).then(function(member) {
-    console.log('member: ', member);
-    db.activityLatestByMember(member.id).then(function(data) {
+  console.log('Received a message from Twilio: ', req.body.Body, req.body.From);
+  db.memberByPhone(req.body.From).then(function(data) {
+    console.log('data: ', data);
+    db.activityMemberByActMem(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
       console.log('@@@@@@ rsvp data: ', data);
-      var activity_id = parseInt(data.activity_id);
-      var member_id = parseInt(data.member_Id);
+      var activity_id = parseInt(req.params.id);
+      var member_id = parseInt(req.params.memberId);
       if (data.length===0) {
-        console.log('going to insertActivityMember with: ', activity_id, member_id);
+        console.log('going to insertActivityMember with: ', memberData);
         db.insertActivity_Member({activity_id: activity_id,
                           member_id: member_id,
-                          rsvp: req.body.rsvp}).then(function(data) {
+                          rsvp: req.params.reply}).then(function(data) {
                             console.log('data from insert', data);
                           }
                           );
       } else {
-        var memberData = {id: data[0].activity_member.id,
+        var memberData = {id: data[0].id,
           activity_id: activity_id,
           member_id: member_id,
-          rsvp: req.body.rsvp};
+          rsvp: req.params.reply};
         console.log('going to updateActivityMember with ', memberData);
         db.updateActivity_Member(memberData).then(function(data) {
           console.log('data from update', data);
         });
       }
-    })
   })
 });
 
