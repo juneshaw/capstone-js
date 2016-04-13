@@ -106,6 +106,14 @@ function(req, res, next) {
   });
 });
 
+router.get('/:id/group',
+function(req, res, next) {
+  db.groupByActivity(req.params.id) .then(function(data) {
+    console.log('@@@@@@ group by activity data: ', data);
+    res.send({payload: data});
+  });
+});
+
 router.get('/:id/members/:memberId/rsvp/:reply', function(req, res, next) {
   console.log('made it to the rsvp  with param id of: ', req.params.id, req.params.memberId);
   // var jsonObj = JSON.parse(req.body.json);

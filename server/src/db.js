@@ -315,6 +315,11 @@ memberByPhone: function(phone) {
 activityLatestByMember: function(member_id) {
   console.log('in activityLatest with member: ', member_id);
   return (this.Activities().innerJoin('activity_member', 'activity.id', 'activity_member.member_id').innerJoin('member', 'activity_member.member_id', 'member.id').where('member.id', member_id));
+},
+
+groupByActivity: function(activity_id) {
+  console.log('in groupByActivity with actid: ', activity_id);
+  return (this.Groups().join('activity', 'group.id', 'activity.group_id').where('activity.id', activity.id).first())
 }
 
 //
