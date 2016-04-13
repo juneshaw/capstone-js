@@ -75,13 +75,13 @@ router.get('/receive', function(req, res, next) {
       console.log('activity data with activity id: ', activity);
     db.activityMemberByActMem(activity.id, member.id).then(function(data) {
       console.log('@@@@@@ rsvp data: ', data);
-      var activity_id = parseInt(req.params.id);
-      var member_id = parseInt(req.params.memberId);
+      // var activity_id = parseInt(req.params.id);
+      // var member_id = parseInt(req.params.memberId);
       if (data.length===0) {
-        console.log('going to insertActivityMember with: ', memberData);
-        db.insertActivity_Member({activity_id: activity_id,
-                          member_id: member_id,
-                          rsvp: req.params.reply}).then(function(data) {
+        console.log('going to insertActivityMember with: ');
+        db.insertActivity_Member({activity_id: data.activity_id,
+                          member_id: data.member_id,
+                          rsvp: data.rsvp}).then(function(data) {
                             console.log('data from insert', data);
                           }
                           );
