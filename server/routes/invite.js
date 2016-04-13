@@ -73,7 +73,7 @@ router.get('/receive', function(req, res, next) {
     console.log('data: ', member);
     db.activityLatestByMember(member.id).orderBy('date', 'desc').first().then(function(activity) {
       console.log('activity data with activity id: ', activity);
-    db.activityMemberByActMem(activity.id, member.id).then(function(data) {
+    db.activityMemberByActMem(activity.activity_id, activity.member_id).then(function(data) {
       console.log('@@@@@@ rsvp data: ', data);
       // var activity_id = parseInt(req.params.id);
       // var member_id = parseInt(req.params.memberId);
