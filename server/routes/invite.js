@@ -87,9 +87,9 @@ router.get('/receive', function(req, res, next) {
                           });
       } else {
         var memberData = {id: data[0].id,
-          activity_id: activity_id,
-          member_id: member_id,
-          rsvp: req.params.reply};
+          activity_id: activity.id,
+          member_id: member.id,
+          rsvp: rsvp};
         console.log('going to updateActivityMember with ', memberData);
         db.updateActivity_Member(memberData).then(function(data) {
           console.log('data from update', data);
