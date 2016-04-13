@@ -303,8 +303,7 @@ deletePreference_CategoryByPreference: function(preferenceId) {
 },
 
 memberByPhone: function(phone) {
-  console.log('in memberbyPhone');
-  // console.log('in memberbyPhone', phone);
+  console.log('in memberbyPhone', phone);
   return (this.Members().join('contact_info', 'member.contact_info_id', 'contact_info.id').where('contact_info.phone', phone).first());
 },
 
