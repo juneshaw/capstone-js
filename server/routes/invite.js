@@ -86,6 +86,7 @@ router.post('/receive', function(req, res, next) {
           console.log('data from update', data);
         });
       }
+    })
   })
 });
 
