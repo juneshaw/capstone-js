@@ -274,6 +274,11 @@ activityMembers: function(activityId) {
   return (this.Members().join('activity_member', 'member.id', 'activity_member.member_id').where('activity_member.activity_id', activityId));
 },
 
+groupMembers: function(groupId) {
+  // return (this.Activities().where('id', activityId).join('activity_member', 'activity.id', 'activity_member.actiivty_id'));
+  return (this.Members().join('group_member', 'member.id', 'group_member.member_id').where('group_member.group_id', group_id));
+},
+
 groupByPreference: function(preferenceId) {
   return (this.Groups().where('preference_id', preferenceId).first());
 },

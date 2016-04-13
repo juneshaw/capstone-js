@@ -40,6 +40,13 @@ router.get('/:id/activities', function(req, res, next) {
   });
 });
 
+router.get('/:id/members/:member_id', function(req, res, next) {
+  db.groupMembers(req.params.id).then(function(data) {
+    console.log('in db, groupmembers: ', data);
+    res.send({payload:data});
+  });
+});
+
 router.get('/:id', function(req, res, next) {
   console.log('got to the show group route');
   db.group(req.params.id).then(function(data) {
