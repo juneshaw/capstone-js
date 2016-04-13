@@ -301,6 +301,17 @@ deletePreference_CategoryByPreference: function(preferenceId) {
   console.log('in deletePreference_CategoryByPreference with prefid: ', preferenceId);
   return (this.Preference_Categories().where('preference_id', preferenceId).del().count());
 }
+
+memberByPhone: function(phone) {
+  console.log('in memberbyPhone', phone);
+  return (this.Members().join('contact_info', 'member.contact_info_id', 'contact_info.id').where('contact_info.phone', phone).first());
+}
+
+activityLatestByMember: function(member_id) {
+  console.log('in activityLatest with member: ', member_id);
+  return (this.Activities().innerJoin('activity_member', 'activity.id', 'activity_member.member_id').innerJoin('member', 'activity_member.member_id', 'member.id').where('member.id', member_id));
+}
+
 //
 // activityMemberByActMem: function(activityId, memberId) {
 //   return(this.Activity_Members().where({'activity_id':activityId, 'memberId': memberId})).first()

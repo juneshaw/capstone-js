@@ -8,6 +8,6 @@ exports.seed = function(knex, Promise) {
     knex('contact_info').insert({id: 1,
       location_id: 1,
       email: 'june.shaw@me.com',
-      phone: '3037264083'})
+      phone: '+13037264083'})
   );
 };
