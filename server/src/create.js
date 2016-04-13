@@ -10,7 +10,7 @@ var rsvp = require('./rsvp.js');
 module.exports = {
 
   createActivity: function(group, category_filter, time) {
-    console.log('got the createActivity call with', group.city_state, group.sort, category_filter, time.time);
+    console.log('got the createActivity call with', group, category_filter, time.time);
 
     var set_parameters =
     {location: group.city_state, sort: group.sort, category_filter: category_filter}
@@ -95,6 +95,7 @@ module.exports = {
 
       /* Add the query string to the url */
       var apiURL = url+'?'+paramURL;
+      console.log('apiURL: ', apiURL);
 
       /* Then we use request to send make the API Request */
       // request(apiURL, function(error, response, body){
