@@ -20,7 +20,7 @@ module.exports = {
       // res.send(body);
       // console.log('body: ', body);
       var activities = JSON.parse(body).businesses;
-
+      console.log('activities in gen: ', activities);
       var randomResultIndex= Math.floor(Math.random() * (activities.length - 0 )) + 0;
       console.log('chosen activity: ', activities[randomResultIndex]);
       var activity = activities[randomResultIndex];
