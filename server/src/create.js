@@ -77,6 +77,7 @@ module.exports = {
         oauth_signature_method : 'HMAC-SHA1',
         oauth_version : '1.0'
       };
+      console.log('required parameters: ', required_parameters, '*****');
 
       /* We combine all the parameters in order of importance */
       var parameters = _.assign(default_parameters, set_parameters, required_parameters);
