@@ -67,34 +67,35 @@ router.get('/receive', function(req, res, next) {
   console.log('not reaching it?');
   var url_parts = url.parse(req.url, true);
   var query = url_parts.query;
+  var rsvp = query.Body;
   console.log('url query: ', query.From);
   // var phone = parseString(req.body.From);
   db.memberByPhone(query.From).then(function(member) {
     console.log('data: ', member);
     db.activityLatestByMember(member.id).orderBy('date', 'desc').first().then(function(activity) {
       console.log('activity data with activity id: ', activity);
-      db.activityMemberByActMem(activity.activity_id, activity.member_id).then(function(data) {
-        console.log('@@@@@@ rsvp data: ', data);
-        // var activity_id = parseInt(req.params.id);
-        // var member_id = parseInt(req.params.memberId);
-        if (data.length===0) {
-          console.log('going to insertActivityMember with: ');
-          db.insertActivity_Member({activity_id: activity.activity_id,
-                            member_id: activity.member_id,
-                            rsvp: activity.rsvp}).then(function(data) {
-                              console.log('data from insert', data);
-          });
-        } else {
-          var memberData = {id: data[0].id,
-            activity_id: activity_id,
-            member_id: member_id,
-            rsvp: req.params.reply};
-          console.log('going to updateActivityMember with ', memberData);
-          db.updateActivity_Member(memberData).then(function(data) {
-            console.log('data from update', data);
-          });
-        }
-      })
+    db.activityMemberByActMem(activity.activity_id, activity.member_id).then(function(data) {
+      console.log('@@@@@@ rsvp data: ', data);
+      // var activity_id = parseInt(req.params.id);
+      // var member_id = parseInt(req.params.memberId);
+      if (data.length===0) {
+        console.log('going to insertActivityMember with: ');
+        db.insertActivity_Member({activity_id: activity.id,
+                          member_id: member.id,
+                          rsvp: rsvp}).then(function(data) {
+                            console.log('data from insert', data);
+                          });
+      } else {
+        var memberData = {id: data[0].id,
+          activity_id: activity_id,
+          member_id: member_id,
+          rsvp: req.params.reply};
+        console.log('going to updateActivityMember with ', memberData);
+        db.updateActivity_Member(memberData).then(function(data) {
+          console.log('data from update', data);
+        });
+      }
+    })
     })
   })
 });
