@@ -18,7 +18,9 @@ module.exports = {
     //  {location:'Evergreen+CO',sort:'2'};
     function callback(error, response, body) {
       // res.send(body);
-      // console.log('body: ', body);
+      console.log('error: ', error);
+      console.log('response: ', response);
+      console.log('body: ', body);
       var activities = JSON.parse(body).businesses;
       console.log('activities in gen: ', activities);
       var randomResultIndex= Math.floor(Math.random() * (activities.length - 0 )) + 0;
