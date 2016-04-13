@@ -43,7 +43,7 @@ router.get('/send', function(req, res, next) {
       // to:'+17202327517',
       // to:'16142708123',
       from:process.env.TWILIO_NUMBER,
-      body:'Would you like to go to my lame event?'
+      body:'Would you like to go to my event?'
   }, function(error, message) {
       // The HTTP request to Twilio will run asynchronously. This callback
       // function will be called when a response is received from Twilio

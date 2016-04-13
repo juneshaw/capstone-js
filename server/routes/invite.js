@@ -61,7 +61,7 @@ router.get('/send', function(req, res, next) {
 // (get was suggested, but post is working.)
 // WORKING ON HEROKU
 router.post('/receive', function(req, res, next) {
-  console.log('Received a message from Twilio: ', req.body.rsvp, req.body.phone);
+  console.log('Received a message from Twilio: ', req.body);
   db.memberByPhone(req.body.phone).then(function(member) {
     console.log('member: ', member);
     db.activityLatestByMember(member.id).then(function(data) {
