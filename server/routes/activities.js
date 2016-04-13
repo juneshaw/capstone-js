@@ -102,7 +102,7 @@ router.get('/:id/members/:memberId/rsvp/',
 function(req, res, next) {
   db.activityMemberByActMem(req.params.id, req.params.memberId).then(function(data) {
     console.log('@@@@@@ rsvp data: ', data);
-    res.send(payload: data[0].rsvp);
+    res.send({payload: data[0].rsvp});
   });
 });
 

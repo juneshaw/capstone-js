@@ -46,7 +46,7 @@ exports.seed = function(knex, Promise) {
       contact_info_id: 2,
       image_url: "https://s3-us-west-1.amazonaws.com/connectbot/members/images-8.jpg"}),
     knex('member').insert({id: 9,
-      first_name: 'Linda',
+      first_name: 'Lee',
       last_name: 'Metzger',
       contact_info_id: 3,
       image_url: "https://s3-us-west-1.amazonaws.com/connectbot/members/images-9.jpg"}),
