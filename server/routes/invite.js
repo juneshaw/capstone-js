@@ -60,8 +60,8 @@ router.get('/send', function(req, res, next) {
 // (console.log can screw up Twilio.)
 // (get was suggested, but post is working.)
 // WORKING ON HEROKU
-router.post('/receive', function(req, res, next) {
-  console.log('Received a message from Twilio: ', req.body.Body, req.body.From);
+router.get('/receive/:rsvp/:phone', function(req, res, next) {
+  console.log('Received a message from Twilio: ', req.params.rsvp, req.body.phone);
   console.log('not reaching it?');
   // var phone = parseString(req.body.From);
   // db.memberByPhone().then(function(data) {
