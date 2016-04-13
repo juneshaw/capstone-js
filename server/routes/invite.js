@@ -67,14 +67,19 @@ router.get('/receive', function(req, res, next) {
   console.log('not reaching it?');
   var url_parts = url.parse(req.url, true);
   var query = url_parts.query;
-  console.log('url query: ', query.From);
+  var phone = query.From;
+  var rsvp = query.Body;
+  console.log('url query: ', phone, rsvp);
+  log
   // var phone = parseString(req.body.From);
-  db.memberByPhone(query.From).then(function(data) {
-    console.log('data: ', data);
-    db.activityMemberByActMem(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
+  db.memberByPhone(phone).then(function(member) {
+    console.log('data: ', member);
+    db.activityLatestByMember(member.id).orderBy('date', 'desc').first().then(function(activity) {
+      console.log('activity data with activity id: ', activity);
+    db.activityMemberByActMem(activity.id, member_id).then(function(data) {
       console.log('@@@@@@ rsvp data: ', data);
-      var activity_id = parseInt(req.params.id);
-      var member_id = parseInt(req.params.memberId);
+      // var activity_id = parseInt(req.params.id);
+      // var member_id = parseInt(req.params.memberId);
       if (data.length===0) {
         console.log('going to insertActivityMember with: ', memberData);
         db.insertActivity_Member({activity_id: activity_id,
@@ -93,6 +98,7 @@ router.get('/receive', function(req, res, next) {
           console.log('data from update', data);
         });
       }
+    })
     })
   })
 });
