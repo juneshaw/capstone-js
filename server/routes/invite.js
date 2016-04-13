@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var url = require('url');
 // var mailcomposer = require('mailcomposer');
 // var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 // require('dotenv').load();
@@ -66,6 +67,9 @@ router.get('/receive/:rsvp/:phone', function(req, res, next) {
   // var phone = parseString(req.body.From);
   // db.memberByPhone().then(function(data) {
     // console.log('data: ', data);
+    var url_parts = url.parse(req.url, true);
+    var query = url_parts.query;
+    console.log('url query: ', query);
     db.activityMemberByActMem(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
       console.log('@@@@@@ rsvp data: ', data);
       var activity_id = parseInt(req.params.id);
