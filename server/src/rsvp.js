@@ -12,11 +12,13 @@ module.exports = {
     var activityText = "Group " + group.title + " will be meeting at " + activity.name +" on " + group.next_activity_date + ", " + time + "!";
     var inviteBody = greetingText + activityText;
     var urlText = "Go here for more info!  Hope to see you there!"
-    var urlLink = "https://capstone-js.firebaseapp.com/#/activities/" + id;
+    var urlLink = "https://capstone-js2.firebaseapp.com/#/activities/" + id;
     var urlBody = urlText + urlLink;
+    var rsvpBody = "Please RSVP here with a Y or N";
     // var wholeBody = inviteBody + " " + urlBody;
     this.sendMessage(inviteBody);
     this.sendMessage(urlBody);
+    this.sendMessage(rsvpBody);
   },
 
 sendMessage: function(body) {

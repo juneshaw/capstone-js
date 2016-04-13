@@ -14,6 +14,23 @@ exports.seed = function(knex, Promise) {
       time: "19:00:00",
       location_id: 1,
       business_id: 1}),
+      table.increments('id');
+      table.integer('group_id');
+      table.string('name');
+      table.integer('custom_category_id');
+      table.integer('category_id');
+      table.date('date');
+      table.time('time');
+      table.integer('location_id');
+      table.integer('business_id');
+      table.string('address');
+      table.string('city');
+      table.string('state');
+      table.string('category_name');
+      table.float('lat');
+      table.float('long');
+      table.string('phone');
+      table.string('image_url');
     knex('activity').insert({id: 2,
       group_id: 1,
       name: "Graduation Party",

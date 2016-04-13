@@ -98,7 +98,13 @@ router.get('/new/location/:location/sort/:sort', function(req, res, next) {
   request_yelp(set_parameters, callback);
 });
 
-
+router.get('/:id/members/:memberId/rsvp/',
+function(req, res, next) {
+  db.activityMemberByActMem(req.params.id, req.params.memberId).then(function(data) {
+    console.log('@@@@@@ rsvp data: ', data);
+    res.send(payload: data[0].rsvp);
+  });
+});
 
 router.get('/:id/members/:memberId/rsvp/:reply', function(req, res, next) {
   console.log('made it to the rsvp  with param id of: ', req.params.id, req.params.memberId);
