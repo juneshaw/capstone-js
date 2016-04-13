@@ -63,7 +63,7 @@ router.get('/send', function(req, res, next) {
 router.post('/receive', function(req, res, next) {
   console.log('Received a message from Twilio: ', req.body.Body, req.body.From);
   console.log('not reaching it?');
-  var phone = parseString(req.body.From);
+  // var phone = parseString(req.body.From);
   db.memberByPhone().then(function(data) {
     console.log('data: ', data);
     db.activityMemberByActMem(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
