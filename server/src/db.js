@@ -300,12 +300,12 @@ activityMemberByActMem: function(activityId, memberId) {
 deletePreference_CategoryByPreference: function(preferenceId) {
   console.log('in deletePreference_CategoryByPreference with prefid: ', preferenceId);
   return (this.Preference_Categories().where('preference_id', preferenceId).del().count());
-}
+},
 
 memberByPhone: function(phone) {
   console.log('in memberbyPhone', phone);
   return (this.Members().join('contact_info', 'member.contact_info_id', 'contact_info.id').where('contact_info.phone', phone).first());
-}
+},
 
 activityLatestByMember: function(member_id) {
   console.log('in activityLatest with member: ', member_id);
