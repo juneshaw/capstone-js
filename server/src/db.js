@@ -319,7 +319,7 @@ activityLatestByMember: function(member_id) {
 
 groupByActivity: function(activity_id) {
   console.log('in groupByActivity with actid: ', activity_id);
-  return (this.Groups().join('activity', 'group.id', 'activity.group_id').where('activity.id', activity.id).first())
+  return (this.Groups().join('activity', 'group.id', 'activity.group_id').where('activity.id', activity_id).first())
 }
 
 //
