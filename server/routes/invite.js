@@ -64,12 +64,12 @@ router.get('/send', function(req, res, next) {
 router.get('/receive', function(req, res, next) {
   console.log('Received a message from Twilio: ', req.params.rsvp, req.body.phone);
   console.log('not reaching it?');
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query;
+  console.log('url query: ', query.From);
   // var phone = parseString(req.body.From);
-  // db.memberByPhone().then(function(data) {
-    // console.log('data: ', data);
-    var url_parts = url.parse(req.url, true);
-    var query = url_parts.query;
-    console.log('url query: ', query);
+  db.memberByPhone(query.From).then(function(data) {
+    console.log('data: ', data);
     db.activityMemberByActMem(req.params.id, req.params.memberId, req.params.reply).then(function(data) {
       console.log('@@@@@@ rsvp data: ', data);
       var activity_id = parseInt(req.params.id);
