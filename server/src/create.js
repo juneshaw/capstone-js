@@ -54,7 +54,7 @@ module.exports = {
           console.log('outside ac id', activityId);
           console.log('members: ', members);
           members.forEach(function(member) {
-            console.log('to am *****', this.activityId, member.id);
+            console.log('to am *****', this, member.id);
             db.insertActivity_Member({activity_id: this.activityId,
                                     member_id: member.id,
                                     rsvp: 'N'}).then(function() {
