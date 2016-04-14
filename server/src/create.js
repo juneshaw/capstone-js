@@ -50,7 +50,7 @@ module.exports = {
         console.log('TIME: ', time.time);
         db.groupMembers(group.id).then(function(data) {
           data.forEach(function(member) {
-            db.insertActivityMember({activity_id: data[0].id,
+            db.insertActivity_Member({activity_id: data[0].id,
                                     member_id: member.id,
                                     rsvp: 'N'}).then(function() {
                                       console.log('inserted');
