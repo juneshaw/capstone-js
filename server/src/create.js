@@ -60,7 +60,8 @@ module.exports = {
         })
       })
     }
-  };
+
+
 
 
   var request_yelp = function(set_parameters, callback) {
@@ -120,3 +121,4 @@ module.exports = {
 
     request_yelp(set_parameters, callback);
   }
+}
