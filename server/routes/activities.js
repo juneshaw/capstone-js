@@ -162,7 +162,7 @@ router.get('/:id/members', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   console.log('made it to the activities show with param id of: ', req.params.id);
   db.activity(req.params.id).first().then(function(data) {
-    console.log(' ACTIVITY data: ', data);
+    console.log(' ACTIVITY data: ', req.params.id, data);
       res.send({payload:data});
   });
 });
