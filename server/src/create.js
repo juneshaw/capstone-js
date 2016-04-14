@@ -51,9 +51,9 @@ module.exports = {
         console.log('TIME: ', time.time);
         db.groupMembers(group.id).then(function(members) {
           console.log('members: ', members);
-          data.forEach(function(member) {
-            console.log('to am *****', activityId, member.id);
-            db.insertActivity_Member({activity_id: activityId,
+          members.forEach(function(member) {
+            console.log('to am *****', this.activityId, member.id);
+            db.insertActivity_Member({activity_id: this.activityId,
                                     member_id: member.id,
                                     rsvp: 'N'}).then(function() {
                                       console.log('inserted');
@@ -62,7 +62,7 @@ module.exports = {
                                       })
               rsvp.invite(data[0], group, activity, time.time, category_filter, phone);
             })
-          })
+          }, this)
         })
       })
     }
