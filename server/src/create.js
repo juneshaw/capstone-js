@@ -57,7 +57,10 @@ module.exports = {
                                     member_id: member.id,
                                     rsvp: 'N'}).then(function() {
                                       console.log('inserted');
-              rsvp.invite(data[0], group, activity, time.time, category_filter, member.phone);
+                                      db.member(member.id).then(function(data) {
+                                        var phone = data.phone;
+                                      })
+              rsvp.invite(data[0], group, activity, time.time, category_filter, phone);
             })
           })
         })

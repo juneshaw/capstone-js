@@ -16,12 +16,12 @@ module.exports = {
     var urlBody = urlText + urlLink;
     var rsvpBody = "Please RSVP here with a Y or N";
     // var wholeBody = inviteBody + " " + urlBody;
-    this.sendMessage(inviteBody);
-    this.sendMessage(urlBody);
-    this.sendMessage(rsvpBody);
+    this.sendMessage(inviteBody, phone);
+    this.sendMessage(urlBody, phone);
+    this.sendMessage(rsvpBody, phone);
   },
 
-sendMessage: function(body) {
+sendMessage: function(body, phone) {
   var client = new twilio.RestClient(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
   client.sms.messages.create({
