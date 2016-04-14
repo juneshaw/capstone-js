@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
       preference_id: 5001,
       category_id: 5001}),
     knex('preference_category').insert(
-      {id: 5012,
+      {id: 5002,
       preference_id: 5001,
       category_id: 5002}),
     knex('preference_category').insert(
