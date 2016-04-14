@@ -42,7 +42,7 @@ module.exports = {
       long: activity.location.coordinate.long,
       phone: activity.display_phone,
       image_url: activity.image_url,
-      category_name: activity.categories[0][0]
+      category_name: category_filter
     }).then(function(data) {
       console.log('new activity data: ', data[0]);   // need the id back
         // db.initializeActivityRsvp(group, activityId)
