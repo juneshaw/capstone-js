@@ -19,6 +19,7 @@ var invite = require('./routes/invite')
 // var invites = require('./routes/invites')
 
 var app = express();
+//// TURN BACK ON THE SCHEDULER AFTER THE DEMO /////
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
