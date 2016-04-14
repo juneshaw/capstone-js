@@ -50,6 +50,8 @@ module.exports = {
         console.log('GROUP: ', group);
         console.log('TIME: ', time.time);
         db.groupMembers(group.id).then(function(members) {
+          var activityId = this.activityId;
+          console.log('outside ac id', activityId);
           console.log('members: ', members);
           members.forEach(function(member) {
             console.log('to am *****', this.activityId, member.id);
@@ -63,7 +65,7 @@ module.exports = {
                                       })
             })
           }, this)
-        })
+        }, this)
       })
     }
 
