@@ -42,14 +42,14 @@ router.get('/:id/activities', function(req, res, next) {
 
 router.get('/:id/members', function(req, res, next) {
   db.groupMembers(req.params.id).then(function(data) {
-    console.log('in db, groupmembers: ', data);
+    console.log('in db, groupmembers: ',req.params.id, data);
     res.send({payload:data});
   });
 });
 
 router.get('/:id/members/:member_id', function(req, res, next) {
   db.groupMembers(req.params.id).then(function(data) {
-    console.log('in db, groupmembers: ', data);
+    console.log('in db, groupmembers for a member: ', data);
     res.send({payload:data});
   });
 });

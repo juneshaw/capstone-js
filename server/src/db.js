@@ -276,7 +276,7 @@ activityMembers: function(activityId) {
 
 groupMembers: function(groupId) {
   // return (this.Activities().where('id', activityId).join('activity_member', 'activity.id', 'activity_member.actiivty_id'));
-  return (this.Members().join('group_member', 'member.id', 'group_member.member_id').where('group_member.group_id', group_id));
+  return (this.Members().join('group_member', 'member.id', 'group_member.member_id').where('group_member.group_id', groupId));
 },
 
 groupByPreference: function(preferenceId) {
