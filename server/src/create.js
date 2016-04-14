@@ -49,7 +49,10 @@ module.exports = {
         console.log('ACTIVITY: ', activity);
         console.log('GROUP: ', group);
         console.log('TIME: ', time.time);
-        db.groupMembers(group.id).then(function(members) {
+        var oldActivityId = this;
+        db.groupMembers(group.id).then(function(members, oldActivityId) {
+          console.log('members!!', members);
+          console.log('this above db: ****', oldActivityId);
           console.log('before ac id: ', activityId);
           var activityId = this.activityId;
           console.log('outside ac id', activityId);
