@@ -4,7 +4,7 @@ var twilio = require('twilio');
 // twilio back end
 
 module.exports = {
-  invite: function(id, group, activity, time, category_filter) {
+  invite: function(id, group, activity, time, category_filter, phone) {
 
     // Pass in parameters to the REST API using an object literal notation. The
     // REST client will handle authentication and response serialzation for you.
@@ -25,7 +25,7 @@ sendMessage: function(body) {
   var client = new twilio.RestClient(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
   client.sms.messages.create({
-      to:'+13037264083',
+      to: phone,
       // to:'+17202327517',
       // 720-232-7517
       // to:'16142708123',

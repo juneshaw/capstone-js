@@ -44,17 +44,19 @@ module.exports = {
       image_url: activity.image_url,
       category_name: category_filter
     }).then(function(data) {
-        console.log('new activity data: ', data[0]);   // need the id back
+        var activityId = data[0].id;
+        console.log('new activity data: ', data[0];   // need the id back
         console.log('ACTIVITY: ', activity);
         console.log('GROUP: ', group);
         console.log('TIME: ', time.time);
-        db.groupMembers(group.id).then(function(data) {
+        db.groupMembers(group.id).then(function(members) {
+          console.log('members: ', members);
           data.forEach(function(member) {
-            db.insertActivity_Member({activity_id: data[0].id,
+            db.insertActivity_Member({activity_id: activityId,
                                     member_id: member.id,
                                     rsvp: 'N'}).then(function() {
                                       console.log('inserted');
-              rsvp.invite(data[0], group, activity, time.time, category_filter);
+              rsvp.invite(data[0], group, activity, time.time, category_filter, member.phone);
             })
           })
         })
