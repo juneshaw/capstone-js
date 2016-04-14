@@ -9,7 +9,7 @@ module.exports = {
     // Pass in parameters to the REST API using an object literal notation. The
     // REST client will handle authentication and response serialzation for you.
     var greetingText = "Time for a new event! ";
-    var activityText = "Group " + group.title + " will be meeting at " + activity.name +" (" + category_filter + " on " + group.next_activity_date + ", " + time + "!";
+    var activityText = "Group " + group.title + " will be meeting at " + activity.name +" (" + category_filter + ") on " + group.next_activity_date + ", " + time + "!";
     var inviteBody = greetingText + activityText;
     var urlText = "Go here for more info!  Hope to see you there!"
     var urlLink = "https://capstone-js2.firebaseapp.com/#/activities/" + id;
