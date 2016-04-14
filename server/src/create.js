@@ -44,7 +44,7 @@ module.exports = {
       image_url: activity.image_url,
       category_name: category_filter
     }).then(function(data) {
-        var activityId = data[0].id;
+        var activityId = data[0];
         console.log('new activity data: ', data[0]);   // need the id back
         console.log('ACTIVITY: ', activity);
         console.log('GROUP: ', group);
@@ -59,8 +59,8 @@ module.exports = {
                                       console.log('inserted');
                                       db.member(member.id).then(function(data) {
                                         var phone = data.phone;
+                                        rsvp.invite(data[0], group, activity, time.time, category_filter, phone);
                                       })
-              rsvp.invite(data[0], group, activity, time.time, category_filter, phone);
             })
           }, this)
         })
