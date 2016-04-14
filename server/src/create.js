@@ -50,6 +50,18 @@ module.exports = {
         console.log('GROUP: ', group);
         console.log('TIME: ', time.time);
         var oldActivityId = this;
+
+        for (var i=0; i<5; i++) {
+            (function(counter) {
+                var url = generate_url(i);
+                $http.get(url).then(function(response){
+                    var param2 = response.data.param2
+                    $scope.outputData.push({'index':counter, 'param':param2}) ;
+                });
+            }(i));
+        }
+        (function(activityId) {
+
         db.groupMembers(group.id).then(function(members, oldActivityId) {
           console.log('members!!', members);
           console.log('this above db: ****', oldActivityId);
@@ -69,8 +81,9 @@ module.exports = {
                                       })
             })
           }, this)
-        }, this)
+        })
       })
+    })
     }
 
 
