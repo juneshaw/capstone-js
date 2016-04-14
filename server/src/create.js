@@ -49,10 +49,21 @@ module.exports = {
         console.log('ACTIVITY: ', activity);
         console.log('GROUP: ', group);
         console.log('TIME: ', time.time);
-        rsvp.invite(data[0], group, activity, time.time, category_filter);
+        db.groupMembers(group.id).then(function(data) {
+          data.forEach(function(member) {
+            db.insertActivityMember({activity_id: data[0].id,
+                                    member_id: member.id,
+                                    rsvp: 'N'}).then(function() {
+                                      console.log('inserted');
+              rsvp.invite(data[0], group, activity, time.time, category_filter);
+            })
+          })
+        })
+      })
     })
 
     }
+
     var request_yelp = function(set_parameters, callback) {
 
       /* The type of request */
