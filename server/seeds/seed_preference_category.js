@@ -6,16 +6,16 @@ exports.seed = function(knex, Promise) {
 
     // Inserts seed entries
     knex('preference_category').insert(
-      {id: 1,
-      preference_id: 1,
-      category_id: 1}),
+      {id: 5001,
+      preference_id: 5001,
+      category_id: 5001}),
     knex('preference_category').insert(
-      {id: 2,
-      preference_id: 1,
-      category_id: 2}),
+      {id: 5012,
+      preference_id: 5001,
+      category_id: 5002}),
     knex('preference_category').insert(
-      {id: 3,
-      preference_id: 1,
-      category_id: 3})
+      {id: 5003,
+      preference_id: 5001,
+      category_id: 5003})
   );
 };

@@ -5,8 +5,8 @@ exports.seed = function(knex, Promise) {
     knex('contact_info').del(),
 
     // Inserts seed entries
-    knex('contact_info').insert({id: 1,
-      location_id: 1,
+    knex('contact_info').insert({id: 5001,
+      location_id: 5001,
       email: 'june.shaw@me.com',
       phone: '+13037264083'})
   );
