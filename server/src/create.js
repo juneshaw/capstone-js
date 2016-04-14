@@ -49,28 +49,10 @@ module.exports = {
         console.log('ACTIVITY: ', activity);
         console.log('GROUP: ', group);
         console.log('TIME: ', time.time);
-        var oldActivityId = this;
-
-        for (var i=0; i<5; i++) {
-            (function(counter) {
-                var url = generate_url(i);
-                $http.get(url).then(function(response){
-                    var param2 = response.data.param2
-                    $scope.outputData.push({'index':counter, 'param':param2}) ;
-                });
-            }(i));
-        }
-        (function(activityId) {
-
-        db.groupMembers(group.id).then(function(members, oldActivityId) {
-          console.log('members!!', members);
-          console.log('this above db: ****', oldActivityId);
-          console.log('before ac id: ', activityId);
-          var activityId = this.activityId;
-          console.log('outside ac id', activityId);
+        db.groupMembers(group.id).then(function(members) {
           console.log('members: ', members);
           members.forEach(function(member) {
-            console.log('to am *****', this, member.id);
+            console.log('to am *****', this.activityId, member.id);
             db.insertActivity_Member({activity_id: this.activityId,
                                     member_id: member.id,
                                     rsvp: 'N'}).then(function() {
@@ -80,10 +62,9 @@ module.exports = {
                                         rsvp.invite(data[0], group, activity, time.time, category_filter, phone);
                                       })
             })
-          }, this)
+          })
         })
       })
-    })
     }
 
 
