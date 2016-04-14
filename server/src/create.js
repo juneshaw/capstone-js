@@ -50,6 +50,7 @@ module.exports = {
         console.log('GROUP: ', group);
         console.log('TIME: ', time.time);
         db.groupMembers(group.id).then(function(members) {
+          console.log('before ac id: ', activityId);
           var activityId = this.activityId;
           console.log('outside ac id', activityId);
           console.log('members: ', members);
