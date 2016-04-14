@@ -13,7 +13,9 @@ exports.seed = function(knex, Promise) {
       date: "2016-05-01",
       time: "19:00:00",
       location_id: 5001,
-      business_id: 5001}),
+      business_id: 5001,
+      phone: "720-490-1323",
+      address: "28065 Hwy 74, Evergreen, CO 80439"}),
     knex('activity').insert({id: 5002,
       group_id: 5001,
       name: "Graduation Party",
@@ -22,7 +24,9 @@ exports.seed = function(knex, Promise) {
       date: "2016-06-01",
       time: "19:00:00",
       location_id: 5001,
-      business_id: 5002}),
+      business_id: 5002,
+      phone: "720-490-1323",
+      address: "28065 Hwy 74, Evergreen, CO 80439"}),
     knex('activity').insert({id: 5003,
       group_id: 5002,
       name: "Matthew Winters Hike",
@@ -31,7 +35,9 @@ exports.seed = function(knex, Promise) {
       date: "2016-06-02",
       time: "19:00:00",
       location_id: 5001,
-      business_id: 5003}),
+      business_id: 5003,
+      phone: "720-490-1323",
+      address: "28065 Hwy 74, Evergreen, CO 80439"}),
     knex('activity').insert({id: 5004,
       group_id: 5003,
       name: "Creek Winery Tour",
@@ -40,6 +46,8 @@ exports.seed = function(knex, Promise) {
       date: "2016-06-03",
       time: "19:00:00",
       location_id: 5001,
-      business_id: 5004})
+      business_id: 5004,
+      phone: "720-490-1323",
+      address: "28065 Hwy 74, Evergreen, CO 80439"})
     );
   };
