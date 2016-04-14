@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  console.log('got to the show member route');
+  console.log('got to the show member route with id:');
   db.member(req.params.id).then(function(data) {
     res.send({payload:data});
   })
