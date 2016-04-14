@@ -49,7 +49,7 @@ module.exports = {
         console.log('ACTIVITY: ', activity);
         console.log('GROUP: ', group);
         console.log('TIME: ', time.time);
-        rsvp.invite(data[0], group, activity, time.time);
+        rsvp.invite(data[0], group, activity, time.time, category_filter);
     })
 
     }
