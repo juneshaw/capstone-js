@@ -60,9 +60,9 @@ module.exports = {
           })
         })
       })
+    })
     }
 
-    }
 
     var request_yelp = function(set_parameters, callback) {
 
