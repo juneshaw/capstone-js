@@ -4,21 +4,6 @@ var create = require('./create.js');
 
 module.exports =
 {
-// createActivities: function() {
-//   // Get the groups that need to be scheduled
-//   // console.log('groups to cr act:', groups);
-//   this.groupsToSchedule();
-//   // For each of the groups, create an activity
-//
-//   // groups.forEach(function(group) {
-//   //   console.log('this group needs to be scheduled', group);
-//
-//     // Create the activity
-//     // this.createActivity(group);
-//   // })
-//
-// },
-
 createActivities: function () {
 
   // Groups to schedule next

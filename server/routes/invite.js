@@ -71,7 +71,7 @@ router.get('/receive', function(req, res, next) {
   console.log('url query: ', query.From);
   // var phone = parseString(req.body.From);
   db.memberByPhone(query.From).then(function(member) {
-    console.log('data: ', member);
+    console.log('member: ', member);
     db.activityLatestByMember(member.id).orderBy('date', 'desc').first().then(function(activity) {
       console.log('activity data with activity id: ', activity);
     db.activityMemberByActMem(activity.activity_id, activity.member_id).then(function(data) {

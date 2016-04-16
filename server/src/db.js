@@ -321,33 +321,4 @@ groupByActivity: function(activity_id) {
   console.log('in groupByActivity with actid: ', activity_id);
   return (this.Groups().join('activity', 'group.id', 'activity.group_id').where('activity.id', activity_id).first())
 }
-
-//
-// activityMemberByActMem: function(activityId, memberId) {
-//   return(this.Activity_Members().where({'activity_id':activityId, 'memberId': memberId})).first()
-// }
-
-
-//   return(this.Members().join('activity_member', 'member.id', 'activity_member.member_id').where('activity_member.activity_id', activityId))
-// }
-
-// userByName: function(user_name) {
-//     return(this.Users().where('user_name', user_name));
-// },
-//
-// authorDefaults: function(id) {
-//     return({'first_name': "", 'last_name': "", 'biography': "", 'portrait_url': ""});
-// },
-//
-// bookDefaults: function() {
-//     return({'title': "", 'genre': "", 'portrait_url': "", 'description': ""});
-// },
-//
-// bookContributorsByBook: function(book_id) {
-//     return(this.BookContributors().where('book_id', book_id));
-// },
-//
-// bookContributorsByAuthor: function(author_id) {
-//     return(this.BookContributors().where('author_id', author_id));
-// },
 };
